@@ -1,23 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, TextInput, View, Button } from 'react-native';
 
 export default function App() {
-  const [number, setNumber] = useState(0)
   return (
     <View style={styles.container}>
-      <Text>{number}</Text>
-      <Button title="Change number" onPress={() => setNumber(number + 1)} />
-      <StatusBar style="auto" />
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Add your task"
+        />
+        <Button title="Save" color="#fc005d" />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 30,
+  },
+  textInput: {
+    borderColor: '#ededed',
+    borderWidth: 1,
+    padding: 10,
+    paddingRight: 20,
+    paddingLeft: 20,
+    width: '70%'
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
 });
